@@ -181,3 +181,7 @@ button {
     transform: translate(40%, 18%);
   }
 }
+
+button {
+  cursor: pointer;
+}
