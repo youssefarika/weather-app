@@ -10,7 +10,7 @@ const degree = document.querySelector(".degree");
 button.addEventListener("click", get);
 async function get() {
   var response = await fetch(
-    `http://api.weatherapi.com/v1/current.json?key=7f005626759e42938f1201547221501&q=${input.value}`
+    `https://api.weatherapi.com/v1/current.json?key=7f005626759e42938f1201547221501&q=${input.value}`
   );
   const data = await response.json();
   // get the value empty after clicking search
