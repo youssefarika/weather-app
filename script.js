@@ -9,8 +9,8 @@ const city = document.querySelector(".city");
 const degree = document.querySelector(".degree");
 button.addEventListener("click", get);
 async function get() {
-  const response = await fetch(
-    `http://api.weatherstack.com/current?access_key=58fe21f36181fb70ba571f48e3826b18&query=${input.value}`
+  var response = await fetch(
+    `http://api.weatherapi.com/v1/current.json?key=7f005626759e42938f1201547221501&q=${input.value}`
   );
   const data = await response.json();
   // get the value empty after clicking search
@@ -18,17 +18,17 @@ async function get() {
     input.value = "";
   }
   // changing the icon state
-  state.src = data.current.weather_icons;
+  state.src = data.current.condition.icon;
   // changing state description
-  hstate.innerText = data.current.weather_descriptions;
+  hstate.innerText = data.current.condition.text;
   // changing hummidity
   numhumi.innerText = `${data.current.humidity}%`;
   // changing wind speed
-  wind.innerText = data.current.wind_speed;
+  wind.innerText = data.current.wind_mph;
   // changing pressure state
-  numaire.innerText = data.current.pressure;
+  numaire.innerText = data.current.pressure_mb;
   // changing city Name
   city.innerText = data.location.name;
   // changing degree
-  degree.innerText = `${data.current.temperature}°C`;
+  degree.innerText = `${data.current.feelslike_c}°C`;
 }
